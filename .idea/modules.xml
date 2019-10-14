@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jdbc-custom.iml" filepath="$PROJECT_DIR$/jdbc-custom.iml" />
       <module fileurl="file://$PROJECT_DIR$/jdbc-util/jdbc-util.iml" filepath="$PROJECT_DIR$/jdbc-util/jdbc-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbc-util-c3p0/jdbc-util-c3p0.iml" filepath="$PROJECT_DIR$/jdbc-util-c3p0/jdbc-util-c3p0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbc-util-c3p0-template/jdbc-util-c3p0-template.iml" filepath="$PROJECT_DIR$/jdbc-util-c3p0-template/jdbc-util-c3p0-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbc-util-druid/jdbc-util-druid.iml" filepath="$PROJECT_DIR$/jdbc-util-druid/jdbc-util-druid.iml" />
       <module fileurl="file://$PROJECT_DIR$/jdbc-util-pool/jdbc-util-pool.iml" filepath="$PROJECT_DIR$/jdbc-util-pool/jdbc-util-pool.iml" />
     </modules>
   </component>
