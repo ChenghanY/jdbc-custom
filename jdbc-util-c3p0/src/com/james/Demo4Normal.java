@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * @Description
  * @Date 2019/10/14
  */
-public class Demo4normal {
+public class Demo4Normal {
 
     @Test
     public void connect() throws PropertyVetoException, SQLException {
