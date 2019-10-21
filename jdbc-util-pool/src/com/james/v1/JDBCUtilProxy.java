@@ -22,7 +22,6 @@ public class JDBCUtilProxy implements InvocationHandler {
     }
 
     /**
-     *
      * @return JDBCUtilProxy
      */
     public Object bind(){
