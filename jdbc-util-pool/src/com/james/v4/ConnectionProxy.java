@@ -23,9 +23,14 @@ public class ConnectionProxy implements InvocationHandler {
     public ConnectionProxy(Connection connection, ConnectionPool connectionPool) {
         this.connection = connection;
         this.connectionPool = connectionPool;
-        aimClass = new Class[]{Connection.class};
+        // 具体代理的类是由对象决定，也就是在运行时才会决定
+        aimClass = new Class[]{connection.getClass()};
     }
 
+    /**
+     * 应用层获取代理对象的终结方法, 有点像建造者模式的 build
+     * @return 运行时生成的$Proxy对象, 该对象持有 aimClass 中的所有方法
+     */
     public Object bind() {
         ClassLoader classLoader = Connection.class.getClassLoader();
         return Proxy.newProxyInstance(classLoader, aimClass, this);

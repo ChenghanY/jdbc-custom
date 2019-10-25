@@ -1,4 +1,4 @@
-package com.james.v4;
+package com.james.v5;
 
 
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class Demo {
         // 从连接池里面获取连接
         Connection connection = connectionPool.getConnection();
 
-        System.out.println("成功获取连接，连接池内的连接数为" + connectionPool.getSize());
+        System.out.println("【main】成功获取连接，连接池内的连接数为" + connectionPool.getSize());
 
         PreparedStatement preparedStatement;
         ResultSet resultSet;
@@ -31,10 +31,10 @@ public class Demo {
             resultSet = preparedStatement.executeQuery();
             // 遍历resultSet
             if (resultSet.next()) {
-                System.out.println("使用数据库连接获取 resultSet :" + resultSet.getString("s_score"));
+                // System.out.println("【main】使用数据库连接获取 resultSet :" + resultSet.getString("s_score"));
             }
             JDBCUtil.close(preparedStatement, connection);
-            System.out.println("close 方法执行后连接池内的连接数为" + connectionPool.getSize());
+            System.out.println("【main】 close 方法执行后连接池内的连接数为" + connectionPool.getSize());
 
         } catch (SQLException e) {
             e.printStackTrace();

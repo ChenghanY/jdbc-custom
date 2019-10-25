@@ -1,4 +1,4 @@
-package com.james.v2;
+package com.james.v3;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -9,17 +9,18 @@ import java.sql.Connection;
  * @Author james
  * @Description
  *
- * 利用动态代理代理方法，将参数提取出来，选择性不关掉连接池资源
- * 动态代理可以做方法路由的功能
+ * 单独抽象出一个Connection用于适配代理机制
  *
  * @Date 2019/10/10
  */
 public class JDBCUtilProxy implements InvocationHandler {
+    private ConnectionPool connectionPool;
 
     private Object target;
 
-    public JDBCUtilProxy(Object target) {
+    public JDBCUtilProxy(Object target, ConnectionPool connectionPool) {
         this.target = target;
+        this.connectionPool = connectionPool;
     }
 
     /**
@@ -43,7 +44,7 @@ public class JDBCUtilProxy implements InvocationHandler {
     private void after(Object obj) {
         if (obj instanceof Connection) {
             Connection connection = (Connection) obj;
-            ConnectionPool.releaseConnection(connection);
+            connectionPool.close(connection);
             System.out.println("【代理类】后置方法已执行， 处理Connection入参");
         }
     }

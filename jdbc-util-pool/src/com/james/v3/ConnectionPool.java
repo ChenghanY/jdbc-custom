@@ -115,4 +115,8 @@ public class ConnectionPool {
             throw new RuntimeException("已经达到了最大的连接个数，请稍后");
         }
     }
+
+    public void close(Connection connection) {
+        pool.addLast(connection);
+    }
 }
